@@ -17,6 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 from productos.views import ProductoDetailView, ProductoListCreateView
 from tiendas.views import TiendaDetailView, TiendaListCreateView
 from usuarios.views import LoginView, RegistroUsuarioView
@@ -30,3 +32,6 @@ urlpatterns = [
     path('productos/', ProductoListCreateView.as_view(), name='productoCreate'),
     path('productos/<int:pk>/', ProductoDetailView.as_view(), name='productoDetail'),
 ]   
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

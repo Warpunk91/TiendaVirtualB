@@ -8,7 +8,7 @@ class Producto(models.Model):
     descripcionProducto = models.CharField(max_length=255)
     tipoProducto = models.CharField(max_length=25)
     precioProducto = models.DecimalField(max_digits=12, decimal_places=2)
-    imagenUrlProducto = models.CharField(max_length=255)
+    imagenUrlProducto = models.ImageField(upload_to='imagenes/')
     estadoProducto = models.BooleanField()
 
     def __str__(self):

@@ -7,6 +7,7 @@ class Tienda(models.Model):
     direccionTienda = models.CharField(max_length=100)
     telefonoTienda = models.CharField(max_length=25)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    UrlImgTienda = models.ImageField(upload_to='imagenes/')
     estadoTienda = models.BooleanField()
 
     def __str__(self):
